@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karel, le robot</title>
+<link rel="stylesheet" href="style/karel.css">
+</head>
+<body>
+<h1>Karel, le robot</h1>
+
+<div class="bar">
+  <select id="exo" hidden aria-label="Exercice"></select>
+  <select id="wsel" hidden aria-label="Monde"></select>
+  <button id="refresh">Rafraîchir</button>
+  <button class="main" id="run">Exécuter</button>
+  <button id="step">Pas à pas</button>
+  <button id="all">Tester sur tous les mondes</button>
+  <label>Vitesse <input type="range" id="spd" min="0" max="5" value="3"></label>
+</div>
+
+<main>
+  <section id="zone-consignes">
+    <h2>Consignes</h2>
+    <div id="consignes" class="md"></div>
+  </section>
+
+  <section id="zone-monde">
+    <h2>Monde</h2>
+    <canvas id="cv" aria-label="Monde de Karel"></canvas>
+    <div id="msg" role="status"></div>
+    <div id="info"></div>
+    <ul id="res"></ul>
+    <div class="path" id="nworld">exemple intégré</div>
+    <textarea id="wld" spellcheck="false"></textarea>
+  </section>
+
+  <section id="zone-prog">
+    <h2>Programme</h2>
+    <div class="path" id="nprog">exemple intégré</div>
+    <textarea id="code" spellcheck="false"></textarea>
+    <p class="note">Modifiez le fichier dans votre éditeur (VS Code…), enregistrez, puis cliquez sur « Rafraîchir ».</p>
+  </section>
+</main>
+
+<details>
+<summary>Aide : le langage et le format des mondes</summary>
+<p><strong>Rafraîchir</strong> recharge les consignes, le programme et le monde actuels depuis le disque (pour prendre en compte vos modifications) et remet le monde à zéro. <strong>Tester sur tous les mondes</strong> exécute le programme sur tous les mondes de l'exercice et indique pour chacun si l'objectif est atteint.</p>
+<pre>Actions : avancer  tourner_gauche  poser_balise  ramasser_balise
+Tests : devant_libre  devant_bloque  gauche_libre  droite_libre
+        balise_ici  sac_non_vide  regarde_nord|est|sud|ouest
+Arrêt : pause   (l'exécution s'arrête sur cette ligne ; « Exécuter » reprend)
+Blocs (indentation obligatoire, # = commentaire) :
+  definir nom:
+  repeter 4 fois:
+  tant que [pas] test:
+  si [pas] test:   puis, au même niveau,   sinon:</pre>
+<pre>Monde : une ligne de texte par rangée de cases
+  .  case vide     #  mur     1 à 9  balises
+  ^ > v &lt;  Karel et son orientation (nord, est, sud, ouest)
+  sac 3  (optionnel) nombre de balises dans le sac
+  ---    (optionnel) puis le monde attendu à la fin : « Objectif atteint »
+  ;      ligne de commentaire</pre>
+</details>
+
+<script src="script/karel.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+; Karel monte l’escalier et ramasse la balise en haut
+# # # # 1
+# # # . .
+# # . . #
+# . . # #
+> . # # #
+---
+# # # # >
+# # # . .
+# # . . #
+# . . # #
+. . # # #

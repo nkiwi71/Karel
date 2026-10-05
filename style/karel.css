@@ -1,0 +1,289 @@
+/* ==========================================================
+   Karel : feuille de style
+   Les couleurs sont définies une seule fois (variables),
+   avec une variante pour le thème sombre du système.
+   ========================================================== */
+
+/* ---------- Couleurs (thème clair) ---------- */
+:root {
+  --bg:   #f6f7f9;  /* fond de la page */
+  --fg:   #15202b;  /* texte */
+  --mut:  #5d6b78;  /* texte secondaire */
+  --card: #ffffff;  /* fond des zones (éditeurs, canvas) */
+  --bd:   #cfd6dd;  /* bordures */
+  --acc:  #0b6bcb;  /* couleur d'accent (Karel, bouton principal) */
+  --wall: #2b3742;  /* murs */
+  --grid: #dde3e8;  /* lignes de la grille */
+  --bp:   #e8a200;  /* balises */
+  --ok:   #12724a;
+  --ko:   #b3261e;  /* erreurs */
+}
+
+/* ---------- Couleurs (thème sombre) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:   #10161c;
+    --fg:   #e6ecf1;
+    --mut:  #93a1ae;
+    --card: #18212a;
+    --bd:   #33414e;
+    --acc:  #6db1ff;
+    --wall: #8a9aa8;
+    --grid: #26313b;
+    --bp:   #f2b632;
+    --ok:   #4cc38a;
+    --ko:   #ff8a80;
+  }
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.5 "Trebuchet MS", Verdana, sans-serif;
+  /* les marges tiennent compte des zones sûres des téléphones */
+  padding: 12px
+           max(12px, env(safe-area-inset-right))
+           24px
+           max(12px, env(safe-area-inset-left));
+}
+
+h1 {
+  font-size: 1.25rem;
+  margin: 0 0 10px;
+}
+
+code {
+  font-family: Consolas, Menlo, monospace;
+}
+
+pre {
+  margin: 6px 0;
+  overflow-x: auto;
+}
+
+/* ---------- Barre de boutons ---------- */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+button {
+  font: inherit;
+  padding: 6px 12px;
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+button.main {
+  background: var(--acc);
+  border-color: var(--acc);
+  color: var(--bg);
+  font-weight: bold;
+}
+
+select {
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--fg);
+  max-width: 100%;
+}
+
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--acc);
+  outline-offset: 1px;
+}
+
+/* ---------- Trois zones côte à côte (empilées sur petit écran) ---------- */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 16px;
+}
+
+section {
+  min-width: 0;
+}
+
+/* ---------- Colonne de gauche : le monde ---------- */
+canvas {
+  display: block;
+  max-width: 100%;
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+}
+
+#msg {
+  margin: 8px 0 2px;
+  min-height: 1.5em;
+  font-weight: bold;
+}
+
+#msg.err {
+  color: var(--ko);
+}
+
+#info {
+  color: var(--mut);
+  font-size: .9rem;
+}
+
+/* résultats du test sur plusieurs mondes */
+#res {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  font-size: .9rem;
+}
+
+/* ---------- Titres des trois zones ---------- */
+h2 {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+}
+
+/* ---------- Nom du fichier affiché au-dessus de chaque zone de texte ---------- */
+.path {
+  margin: 12px 0 4px;
+  color: var(--mut);
+  font: .85rem Consolas, Menlo, monospace;
+  overflow-wrap: anywhere;
+}
+
+textarea {
+  width: 100%;
+  font: 13px/1.45 Consolas, Menlo, monospace;
+  background: var(--card);
+  color: var(--fg);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 8px;
+  resize: vertical;
+  tab-size: 4;
+}
+
+#code {
+  height: 340px;
+}
+
+#wld {
+  height: 150px;
+}
+
+/* un fichier chargé depuis le disque fait foi : la zone n'est pas modifiable */
+textarea[readonly] {
+  background: var(--bg);
+  cursor: default;
+}
+
+.note {
+  color: var(--mut);
+  font-size: .85rem;
+  margin: 6px 0 0;
+}
+
+/* ---------- Aide ---------- */
+details {
+  margin-top: 16px;
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ---------- Consignes (Markdown converti en HTML) ---------- */
+#consignes {
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 4px 14px 10px;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.md h1 { font-size: 1.2rem; margin: 12px 0 6px; }
+.md h2 { font-size: 1.05rem; margin: 14px 0 6px; }
+.md h3 { font-size: 1rem;    margin: 12px 0 4px; }
+.md h4 { font-size: .95rem;  margin: 10px 0 4px; }
+
+.md p {
+  margin: 6px 0;
+}
+
+.md ul,
+.md ol {
+  margin: 6px 0;
+  padding-left: 1.4em;
+}
+
+.md li {
+  margin: 3px 0;
+}
+
+.md code {
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 4px;
+  padding: 0 4px;
+  font-size: .9em;
+}
+
+.md pre {
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.md pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+.md table {
+  display: block;            /* permet le défilement horizontal si le tableau est large */
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: .9rem;
+}
+
+.md th,
+.md td {
+  border: 1px solid var(--bd);
+  padding: 4px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.md th {
+  background: var(--bg);
+}

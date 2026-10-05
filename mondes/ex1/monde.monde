@@ -1,0 +1,4 @@
+; Karel va chercher la balise et revient à son point de départ
+> . . 1 .
+---
+< . . . .

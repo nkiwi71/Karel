@@ -1,0 +1,8 @@
+; Karel contourne le mur et ramasse la balise
+. . . . . . .
+> . . # . . 1
+. . . . . . .
+---
+. . . . . . .
+. . . # . . >
+. . . . . . .

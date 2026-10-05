@@ -1,0 +1,8 @@
+; Karel pose des balises aux trois autres coins d’un carré, puis rentre
+> . .
+. . .
+. . .
+---
+^ . 1
+. . .
+1 . 1

@@ -1,0 +1,3 @@
+# Tous les fichiers texte sont stockés ET extraits avec des fins de ligne LF,
+# quel que soit le système (Windows, Linux, macOS) et la config locale de Git.
+* text=auto eol=lf

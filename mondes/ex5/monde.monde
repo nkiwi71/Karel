@@ -1,0 +1,12 @@
+; Karel sort chercher le journal, puis rentre et s’installe comme avant
+# # # # . . . .
+# . . # . . . .
+# > . . . . 1 .
+# . . # . . . .
+# # # # . . . .
+---
+# # # # . . . .
+# . . # . . . .
+# > . . . . . .
+# . . # . . . .
+# # # # . . . .
