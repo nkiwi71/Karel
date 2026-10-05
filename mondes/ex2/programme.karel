@@ -1,2 +1,5 @@
 # Exercice 2 : poser une balise aux trois autres coins d’un carré
 # Karel ne sait tourner qu’à gauche : définissez tourner_droite.
+avancer
+avancer
+poser_balise
