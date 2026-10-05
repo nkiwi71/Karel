@@ -1,2 +1,16 @@
+definir tourner_droite:
+    repeter 3 fois:
+        tourner_gauche
+
 tant que devant_libre:
     avancer
+tourner_gauche
+avancer
+tourner_droite
+avancer
+avancer
+tourner_droite
+avancer
+tourner_gauche
+avancer
+avancer
