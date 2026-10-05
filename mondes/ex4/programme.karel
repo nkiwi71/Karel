@@ -1,4 +1,5 @@
 # Exercice 4 : monter l’escalier avec repeter
+#entete
 definir tourner_droite:
     repeter 3 fois:
         tourner_gauche
