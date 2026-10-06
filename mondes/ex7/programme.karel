@@ -14,17 +14,17 @@ definir ligne_droite:
 definir changer_ligne:
     si regarde_est:
         si gauche_libre:
-            tant que balise_ici:
-                ramasser_balise
             tourner_gauche
             avancer
+            tant que balise_ici:
+                ramasser_balise
             tourner_gauche
     sinon:
         si droite_libre:
-            tant que balise_ici:
-                ramasser_balise
             tourner_droite
             avancer
+            tant que balise_ici:
+                ramasser_balise
             tourner_droite
 
 definir aller_bas_gauche:
@@ -38,7 +38,7 @@ definir aller_bas_gauche:
             avancer
     tant que pas regarde_est:
         tourner_gauche
-        
+
 aller_bas_gauche
 repeter 5 fois:
     ligne_droite
