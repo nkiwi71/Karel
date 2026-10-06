@@ -27,6 +27,19 @@ definir changer_ligne:
             avancer
             tourner_droite
 
+definir aller_bas_gauche:
+    tant que pas regarde_sud:
+        tourner_gauche
+    tant que devant_libre:
+        avancer
+    si droite_libre:
+        tourner_droite
+        tant que devant_libre:
+            avancer
+    tant que pas regarde_est:
+        tourner_gauche
+        
+aller_bas_gauche
 repeter 5 fois:
     ligne_droite
     changer_ligne
