@@ -4,25 +4,29 @@ definir tourner_droite:
     tourner_gauche
 
 definir ligne_droite:
-    si balise_ici:
+    tant que balise_ici:
         ramasser_balise
     tant que devant_libre:
         avancer
-        si balise_ici:
+        tant que balise_ici:
             ramasser_balise
 
 definir changer_ligne:
     si regarde_est:
         si gauche_libre:
+            tant que balise_ici:
+                ramasser_balise
             tourner_gauche
             avancer
             tourner_gauche
     sinon:
         si droite_libre:
+            tant que balise_ici:
+                ramasser_balise
             tourner_droite
             avancer
             tourner_droite
 
-repeter 4 fois:
+repeter 5 fois:
     ligne_droite
     changer_ligne
